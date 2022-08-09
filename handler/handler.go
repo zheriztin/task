@@ -151,7 +151,6 @@ func GetTask(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "error is happening", http.StatusInternalServerError)
 		return
 	}
-	log.Println(Result)
 	err = tmpl.Execute(w, Result)
 	if err != nil {
 		log.Println(err)

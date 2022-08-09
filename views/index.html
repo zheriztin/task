@@ -12,19 +12,21 @@
         </tr>
     </thead>
     <tbody>
-        {{ range . }}
-        <tr style="text-align: center;">
-          <td>{{ .Task }}</td>
-          <td>{{ .Asignee }}</td>
-          <td>{{ .Deadline.Format "2006 Jan 02" }}</td>
-          <td>
-            <a href="/status?id={{ .ID }}"><button type="button" style="padding: 5px; color: #009879; border-radius: 12px;">{{ .TaskStatus }}</button></a>
-            <a href="/task?id={{ .ID }}"><button type="button" style="padding: 5px; color: blue; border-radius: 12px;">Edit</button></a>
-            <a href="delete?id={{ .ID }}"><button type="button" style="padding: 5px; color: red; border-radius: 12px;">Delete</button></a>
-          </td>
-        </tr>
-      {{ end }}
+      {{ range . }}
+      <tr style="text-align: center;">
+        <td>{{ .Task }}</td>
+        <td>{{ .Asignee }}</td>
+        <td>{{ .Deadline.Format "2006 Jan 02" }}</td>
+        <td>
+          <a href="/status?id={{ .ID }}"><button type="button" style="padding: 5px; color: #009879; border-radius: 12px;">{{ .TaskStatus }}</button></a>
+          <a href="/task?id={{ .ID }}"><button type="button" style="padding: 5px; color: blue; border-radius: 12px;">Edit</button></a>
+          <a href="delete?id={{ .ID }}"><button type="button" style="padding: 5px; color: red; border-radius: 12px;">Delete</button></a>
+        </td>
+        {{else}}
+        <td style="text-align: center ;" colspan="4">No Task Available</td>
+        {{ end }}
+      </tr>
     </tbody>
-</table>
+  </table>
 </div>
 {{ end }}
