@@ -1,0 +1,30 @@
+{{ template "layout" .}}
+{{ define "main" }}
+
+<div > 
+  <table class="styled-table" >
+    <thead>
+        <tr style="text-align: center;">
+            <th>Task</th>
+            <th>Asignee</th>
+            <th>Deadline</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{ range . }}
+        <tr style="text-align: center;">
+          <td>{{ .Task }}</td>
+          <td>{{ .Asignee }}</td>
+          <td>{{ .Deadline.Format "2006 Jan 02" }}</td>
+          <td>
+            <a href="/status?id={{ .ID }}"><button type="button" style="padding: 5px; color: #009879; border-radius: 12px;">{{ .TaskStatus }}</button></a>
+            <a href="/task?id={{ .ID }}"><button type="button" style="padding: 5px; color: blue; border-radius: 12px;">Edit</button></a>
+            <a href="delete?id={{ .ID }}"><button type="button" style="padding: 5px; color: red; border-radius: 12px;">Delete</button></a>
+          </td>
+        </tr>
+      {{ end }}
+    </tbody>
+</table>
+</div>
+{{ end }}

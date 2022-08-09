@@ -1,0 +1,22 @@
+{{ template "layout" . }}
+{{ define "main" }}
+<div >
+  <form action="/processAddForm" method="post" style="text-align: center;  margin-top: 50px;">
+    <h1>ADD FORM</h1>
+    <div class="form-group" style="margin-top: 20px;">
+      <label for="task">Task:</label><br>
+      <textarea type="text" id="task" name="task" ></textarea><br>
+    </div>
+    <div class="form-group" style="margin-top: 20px;"> 
+      <label for="lname">Asignee</label><br>
+      <input type="text" id="asignee" name="asignee" ><br>
+    </div>
+    <div class="form-group" style="margin-top: 20px;">
+      <label for="lname">Deadline</label><br>
+      <input type="date" id="deadline" name="deadline" ><br>
+    </div>
+    
+    <input type="submit" value="Submit" style="margin-top: 20px;">
+  </form> 
+</div>
+{{ end }}

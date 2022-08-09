@@ -1,0 +1,24 @@
+{{ template "layout" . }}
+{{ define "main" }}
+<div >
+  <form action="/processEditForm" method="post" style="text-align: center;  margin-top: 50px;">
+    <h1>EDIT FORM</h1>
+    <div class="form-group" style="margin-top: 20px;">
+      <label for="task">Task:</label><br>
+      <textarea type="text" id="task" name="task" >{{ .Task }}</textarea><br>
+    </div>
+    <div class="form-group" style="margin-top: 20px;"> 
+      <label for="lname">Asignee</label><br>
+      <input type="text" id="asignee" name="asignee" value="{{ .Asignee }}"><br>
+    </div>
+    <div class="form-group" style="margin-top: 20px;">
+      <label for="lname">Deadline</label><br>
+      <input type="date" id="deadline" name="deadline" value="{{.Deadline.Format "2006-02-01" }}"><br>
+    </div>
+    
+    <input type="submit" value="Submit" style="margin-top: 20px;">
+    <input type="text" id="id" name="id" value="{{ .ID }}" hidden><br>
+
+  </form> 
+</div>
+{{ end }}
