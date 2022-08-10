@@ -1,6 +1,7 @@
 CREATE TABLE public.task (
-  id SERIAL	PRIMARY KEY,
-  task varchar NULL,
-  assignee varchar NULL,
-  deadline date NULL
+	id SERIAL	PRIMARY KEY,
+	task varchar NULL,
+	asignee varchar NULL,
+	deadline date null,
+	"isDone" varchar NULL
 );
